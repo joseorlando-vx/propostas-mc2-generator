@@ -1,5 +1,5 @@
-# Templates .docx
+# .docx templates
 
-Esta pasta recebe os templates Word (`template_simples.docx`, `template_intermediario.docx`, `template_servico.docx`, `template_aditivo.docx`) com marcadores `{{ campo }}` do docxtpl.
+This folder receives the Word templates (`template_simples.docx`, `template_intermediario.docx`, `template_servico.docx`, `template_aditivo.docx`) with docxtpl `{{ field }}` placeholders.
 
-Os templates originais usam o timbrado da empresa e **não** são versionados neste repositório público. Para rodar, crie seus próprios templates com os marcadores esperados por `etapa2_template.py`.
+The original templates use the company letterhead and are **not** versioned in this public repository. To run the app, create your own templates with the placeholders expected by `etapa2_template.py`.

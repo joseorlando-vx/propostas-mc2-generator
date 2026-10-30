@@ -1,52 +1,54 @@
-# Gerador de Propostas Comerciais (Streamlit + docxtpl)
+# Commercial Proposal Generator (Streamlit + docxtpl)
 
-Aplicação web que gera propostas comerciais em Word (.docx) a partir de formulário, com preenchimento assistido por IA (API da Anthropic). Foi construída para o fluxo de propostas de uma empresa de automação predial, em substituição ao preenchimento manual de documentos.
+A web app that generates commercial proposals as Word (.docx) files from a form, with AI-assisted text filling (Anthropic API). It was built for the proposal workflow of a building-automation company, replacing manual document editing.
 
-> Versão pública: sem templates com timbrado, propostas reais, dados de clientes ou histórico do projeto privado.
+> Public version: no letterhead templates, real proposals, client data or history from the private project.
 
-## O problema
+## The problem
 
-Cada proposta era montada à mão a partir de uma proposta antiga: copiar, trocar cliente, escopo, exclusões e valores. Isso gerava erros de marcador, inconsistência de linguagem e retrabalho.
+Each proposal was assembled by hand from an older one: copy, swap client, scope, exclusions and values. That caused placeholder errors, inconsistent wording and rework.
 
-## O que a aplicação faz
+## What the app does
 
-- 4 tipos de proposta (simples, intermediária, serviço e aditivo), cada um com seu template e marcadores
-- Interface em painel único com pré-visualização do documento (mammoth)
-- Botão "Preencher com IA" que sugere escopo, exclusões e justificativa seguindo um manual de estilo
-- Geração do .docx via `docxtpl` e opção de gerar PDF (via Word, só Windows)
-- Histórico de propostas salvo em banco hospedado (Turso/libSQL)
+- 4 proposal types (simple, intermediate, service and amendment), each with its own template and placeholders
+- Single-panel interface with a document preview (mammoth)
+- "Fill with AI" button that suggests scope, exclusions and justification following a style guide
+- .docx generation through `docxtpl`, plus optional PDF output (via Word, Windows only)
+- Proposal history stored in a hosted database (Turso/libSQL)
 
 ## Stack
 
 Python, Streamlit, docxtpl, python-docx, Anthropic SDK, mammoth, libSQL (Turso).
 
-## Estrutura
+## Structure
 
 ```
-app.py                  ponto de entrada (st.navigation)
-pagina_propostas.py     interface do painel de propostas
-etapa2_template.py      dicionário de marcadores e geração do .docx por tipo
-ia_preenchimento.py     chamada à API da Anthropic para sugerir textos
-db.py                   persistência (Turso)
-templates_v5_painel_unico/   coloque aqui seus templates .docx
+app.py                  entry point (st.navigation)
+pagina_propostas.py     proposal panel UI
+etapa2_template.py      placeholder dictionary and per-type .docx generation
+ia_preenchimento.py     Anthropic API call that suggests texts
+db.py                   persistence (Turso)
+templates_v5_painel_unico/   put your .docx templates here
 ```
 
-## Como rodar
+## How to run
 
 ```bash
 pip install -r requirements.txt
 export ANTHROPIC_API_KEY=...
-export TURSO_DATABASE_URL=libsql://seu-banco.turso.io
+export TURSO_DATABASE_URL=libsql://your-database.turso.io
 export TURSO_AUTH_TOKEN=...
 streamlit run app.py
 ```
 
-Crie os templates `.docx` em `templates_v5_painel_unico/` (veja o README da pasta). Em produção, as variáveis ficam em "Secrets" do Streamlit Community Cloud.
+Create the `.docx` templates in `templates_v5_painel_unico/` (see that folder's README). In production, the variables live in the Streamlit Community Cloud "Secrets".
 
-## Meu papel
+Note: code comments, UI text and proposal wording are in Brazilian Portuguese, because the proposals are written for Brazilian clients.
 
-Desenhei e implementei a aplicação, a taxonomia de tipos de proposta e a integração com IA, trabalhando com Claude Code e Codex como assistentes de desenvolvimento.
+## My role
 
-## Licença
+I designed and implemented the app, the proposal-type taxonomy and the AI integration, working with Claude Code and Codex as development assistants.
+
+## License
 
 MIT
