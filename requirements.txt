@@ -1,0 +1,12 @@
+# Gerador de Propostas MC2 — dependências
+# Instale com:  pip install -r requirements.txt
+docxtpl>=0.16     # preenche os templates .docx com os marcadores {{ }}
+docxcompose>=1.4  # Subdoc do docxtpl (bloco_exclusoes) depende disso pra montar os bullets; sem ela "Gerar .docx" quebra pra qualquer tipo
+streamlit>=1.30   # interface web da Fase 2 (app.py)
+# python-docx vem junto como dependência do docxtpl, mas listamos porque
+# os scripts de verificação (e o transplante de timbrado) o usam direto:
+python-docx>=1.1
+anthropic>=0.40   # Fase 3 — preenchimento automático via IA (ia_preenchimento.py)
+mammoth>=1.7      # v5 — preview do .docx formatado como HTML no painel (botão "Visualizar")
+docx2pdf>=0.1.8   # v5 — botão "Gerar também PDF": usa o Word instalado via COM (Windows only, precisa Microsoft Word instalado); traz pywin32 no Windows
+libsql-client>=0.3.1  # v5 — db.py usa Turso em vez de SQLite local (Streamlit Community Cloud tem filesystem efêmero); requer TURSO_DATABASE_URL/TURSO_AUTH_TOKEN

@@ -1,0 +1,28 @@
+# Tema visual do Gerador de Propostas MC2/AQ3.
+#
+# Paleta extraída do logo oficial da MC2 (embutido nos templates .docx em
+# templates_v4_arial/*.docx -> word/media/image2.png): vermelho #C7393E e
+# cinza #98999E. Objetivo: parecer ferramenta corporativa/séria (como o
+# resto do projeto), não um app genérico de IA com gradiente roxo/azul.
+#
+# Raio de borda único ("small") em todo canto pra evitar o efeito
+# "cantos arredondados demais" característico de UI genérica de IA.
+
+[theme]
+base = "light"
+primaryColor = "#C7393E"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F2F2F3"
+textColor = "#26272B"
+borderColor = "#D7D8DB"
+linkColor = "#C7393E"
+font = "Arial, sans-serif"
+baseRadius = "small"
+buttonRadius = "small"
+showWidgetBorder = true
+
+[theme.sidebar]
+backgroundColor = "#FAFAFA"
+secondaryBackgroundColor = "#ECECEE"
+textColor = "#26272B"
+borderColor = "#D7D8DB"

@@ -1,0 +1,8 @@
+.env
+*.env
+.streamlit/secrets.toml
+propostas.db
+propostas_geradas/
+__pycache__/
+*.pyc
+!templates_v5_painel_unico/.gitkeep
